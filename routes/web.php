@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\UserDetailController;
 use App\Models\UserDetail;
 use Illuminate\Support\Facades\Auth;
@@ -44,3 +45,15 @@ Route::delete('/education/{education}/delete', [EducationController::class, 'del
 Route::get('/education/{education}/edit', [EducationController::class, 'edit'])->name('education.edit');
 Route::put('/education/{education}', [EducationController::class, 'update'])->name('education.update');
 Route::delete('/education/{education}/delete', [EducationController::class, 'delete'])->name('education.delete');
+
+
+//experience
+Route::get('/experience/index', [ExperienceController::class, 'index'])->name('experience.index');
+Route::get('/experience/create', [ExperienceController::class, 'create'])->name('experience.craete');
+Route::post('/experience', [ExperienceController::class, 'store'])->name('experience.store');
+Route::get('/experience/{experience}/edit', [ExperienceController::class, 'edit'])->name('experience.edit');
+Route::put('/experience/{experience}', [ExperienceController::class, 'update'])->name('experience.update');
+Route::delete('/experience/{experience}/delete', [ExperienceController::class, 'delete'])->name('experience.delete');
+Route::get('/experience/{experience}/edit', [ExperienceController::class, 'edit'])->name('experience.edit');
+Route::put('/experience/{experience}', [ExperienceController::class, 'update'])->name('experience.update');
+Route::delete('/experience/{experience}/delete', [ExperienceController::class, 'delete'])->name('experience.delete');
