@@ -61,7 +61,7 @@ class UserDetailController extends Controller
 
         $user->save();
 
-        return redirect()->back()->with('message', 'Info Added Successfully');
+        return redirect()->route('education.craete')->with('message', 'User Details Added Successfully');
     }
 
     /**
