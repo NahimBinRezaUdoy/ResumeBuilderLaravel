@@ -26,14 +26,21 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-
+//UserDetails
+Route::get('/userdetails/index', [UserDetailController::class, 'index'])->name('userDetails.index');
 Route::get('/userdetails/create', [UserDetailController::class, 'create'])->name('userDetails.create');
 Route::post('/userdetails', [UserDetailController::class, 'store'])->name('userDetails.store');
+Route::get('/userDetail/{userDetail}/edit', [UserDetailController::class, 'edit'])->name('userDetail.edit');
+Route::put('/userDetail/{userDetail}', [UserDetailController::class, 'update'])->name('userDetail.update');
+Route::delete('/userDetail/{userDetail}/delete', [UserDetailController::class, 'delete'])->name('userDetail.delete');
 
 //education
 Route::get('/education/index', [EducationController::class, 'index'])->name('education.index');
 Route::get('/education/create', [EducationController::class, 'create'])->name('education.craete');
 Route::post('/education', [EducationController::class, 'store'])->name('education.store');
+Route::get('/education/{education}/edit', [EducationController::class, 'edit'])->name('education.edit');
+Route::put('/education/{education}', [EducationController::class, 'update'])->name('education.update');
+Route::delete('/education/{education}/delete', [EducationController::class, 'delete'])->name('education.delete');
 Route::get('/education/{education}/edit', [EducationController::class, 'edit'])->name('education.edit');
 Route::put('/education/{education}', [EducationController::class, 'update'])->name('education.update');
 Route::delete('/education/{education}/delete', [EducationController::class, 'delete'])->name('education.delete');

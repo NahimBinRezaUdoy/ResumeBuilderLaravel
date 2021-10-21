@@ -19,7 +19,9 @@ class UserDetailController extends Controller
      */
     public function index()
     {
-        //
+        $userDetail = auth()->user()->userDetail;
+
+        return view('userDetails.index', compact('userDetail'));
     }
 
     /**
@@ -61,7 +63,7 @@ class UserDetailController extends Controller
 
         $user->save();
 
-        return redirect()->route('education.craete')->with('message', 'User Details Added Successfully');
+        return redirect()->route('userDetails.index')->with('message', 'User Details Added Successfully');
     }
 
     /**
@@ -83,7 +85,7 @@ class UserDetailController extends Controller
      */
     public function edit(UserDetail $userDetail)
     {
-        //
+        return view('userDetails.edit', compact('userDetail'));
     }
 
     /**
@@ -95,7 +97,18 @@ class UserDetailController extends Controller
      */
     public function update(Request $request, UserDetail $userDetail)
     {
-        //
+        $this->validate($request, [
+            'fullname' => 'required',
+            'bio' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+
+        ]);
+
+        $userDetail->update($request->all());
+
+        return redirect()->route('userDetails.index')->with('message', 'UserDeatils Updated Successfully');
     }
 
     /**
@@ -104,8 +117,9 @@ class UserDetailController extends Controller
      * @param  \App\Models\UserDetail  $userDetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserDetail $userDetail)
+    public function delete(UserDetail $userDetail)
     {
-        //
+        $userDetail->delete();
+        return redirect()->route('userDetails.index')->with('message', 'UserDeatils Deleted Successfully');
     }
 }
