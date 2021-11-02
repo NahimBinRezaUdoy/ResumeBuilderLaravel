@@ -3,6 +3,8 @@
 @section('content')
 <div class="container">
 
+  <h2>Experience Details</h2>
+
       @forelse ($experience as $exp)
       <div class="card border-primary mb-3">
         <div class="card-body">

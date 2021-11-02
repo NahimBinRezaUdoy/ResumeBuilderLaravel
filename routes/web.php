@@ -3,6 +3,7 @@
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\PersonalProjectController;
+use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserDetailController;
 use App\Models\PersonalProject;
 use App\Models\UserDetail;
@@ -61,3 +62,12 @@ Route::post('/personalProject/store', [PersonalProjectController::class, 'store'
 Route::get('/personalProjcet/{personalProject}/edit', [PersonalProjectController::class, 'edit'])->name('personalProject.edit');
 Route::put('/personalProjcet/{personalProject}', [PersonalProjectController::class, 'update'])->name('personalProject.update');
 Route::delete('personalProject/{personalProject}/delete', [PersonalProjectController::class, 'delete'])->name('personalProject.delete');
+
+
+//Skills
+Route::get('/skill/index', [SkillController::class, 'index'])->name('skill.index');
+Route::get('/skill/create', [SkillController::class, 'create'])->name('skill.create');
+Route::post('/skill/store', [SkillController::class, 'store'])->name('skill.store');
+Route::get('/skill/{skill}/edit', [SkillController::class, 'edit'])->name('skill.edit');
+Route::put('/skill/{skill}', [SkillController::class, 'update'])->name('skill.update');
+Route::delete('skill/{skill}/delete', [SkillController::class, 'delete'])->name('skill.delete');

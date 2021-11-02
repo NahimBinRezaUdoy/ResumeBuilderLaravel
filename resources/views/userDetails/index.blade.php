@@ -3,6 +3,12 @@
 @section('content')
 <div class="container">
 
+    @if(session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+
     <h2>Details <i class="fa fa-info" aria-hidden="true"></i></h2>
     
     @if(empty($userDetail) )

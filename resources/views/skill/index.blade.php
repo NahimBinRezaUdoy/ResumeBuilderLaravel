@@ -2,34 +2,28 @@
 
 @section('content')
 <div class="container">
-  
-  @if(session('message'))
-  <div class="alert alert-success">
-      {{ session('message') }}
-  </div>
-  @endif
-
-  <h2>Personal Projects</h2>
-
+    
     @if(session('message'))
         <div class="alert alert-success">
             {{ session('message') }}
         </div>
     @endif
 
-      @forelse ($personalProject as $project)
+    <h2>Skills </h2>
+
+      @forelse ($skill as $skill)
       <div class="card border-primary mb-3">
         <div class="card-body">
-          <h4 class="card-title">{{ $project->title }} ({{ $project->start_date }} to {{ $project->end_date }} ) </h4>
-          <h5>As a {{ $project->description }}</h5>
+          <h4 class="card-title">{{ $skill->name }} ( {{ $skill->rating }} % ) </h4>
+          
        
-          <a href="{{ route('personalProject.edit' , $project->id) }}">
+          <a href="{{ route('skill.edit' , $skill->id) }}">
             <button class="btn btn-primary btn-inline">Edit</button>
           </a>
 
          
 
-          <form action="{{ route('personalProject.delete' , $project->id) }}" method="post" style="display: inline">
+          <form action="{{ route('skill.delete' , $skill->id) }}" method="post" style="display: inline">
             @csrf
             @method('delete')
             <button class="btn btn-danger btn-inline">Delete</button>
@@ -37,11 +31,11 @@
         </div>
       </div>
       @empty
-        <p>Please Add Your Project Here .</p>
+        <p>Please Add Your skill Here .</p>
       @endforelse
       
 
-      <a href="{{ route('personalProject.create') }}">
+      <a href="{{ route('skill.create') }}">
         <button class="btn btn-success">Add More</button>
       </a>
 </div>

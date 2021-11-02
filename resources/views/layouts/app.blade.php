@@ -74,6 +74,19 @@
                 </div>
             </div>
         </nav>
+        
+          
+          <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item "><a href="{{ route('userDetails.index') }}">User Details</a></li>
+                  <li class="breadcrumb-item "><a href="{{ route('education.index') }}">Education</a></li>
+                  <li class="breadcrumb-item "><a href="{{ route('experience.index') }}">Experience</a></li>
+                  <li class="breadcrumb-item "><a href="{{ route('personalProject.index') }}">Personal Projects</a></li>
+                  <li class="breadcrumb-item "><a href="{{ route('skill.index') }}">Skills</a></li>
+                </ol>
+              </nav>
+          </div>
 
         <main class="py-4">
             @yield('content')

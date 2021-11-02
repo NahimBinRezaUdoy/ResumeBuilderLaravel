@@ -3,6 +3,14 @@
 @section('content')
 <div class="container">
 
+  @if(session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+
+  <h2>Education Details</h2>
+
       @forelse ($education as $edu)
       <div class="card border-primary mb-3">
         <div class="card-body">
