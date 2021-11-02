@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\PersonalProjectController;
 use App\Http\Controllers\UserDetailController;
+use App\Models\PersonalProject;
 use App\Models\UserDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -42,10 +44,6 @@ Route::post('/education', [EducationController::class, 'store'])->name('educatio
 Route::get('/education/{education}/edit', [EducationController::class, 'edit'])->name('education.edit');
 Route::put('/education/{education}', [EducationController::class, 'update'])->name('education.update');
 Route::delete('/education/{education}/delete', [EducationController::class, 'delete'])->name('education.delete');
-Route::get('/education/{education}/edit', [EducationController::class, 'edit'])->name('education.edit');
-Route::put('/education/{education}', [EducationController::class, 'update'])->name('education.update');
-Route::delete('/education/{education}/delete', [EducationController::class, 'delete'])->name('education.delete');
-
 
 //experience
 Route::get('/experience/index', [ExperienceController::class, 'index'])->name('experience.index');
@@ -54,6 +52,12 @@ Route::post('/experience', [ExperienceController::class, 'store'])->name('experi
 Route::get('/experience/{experience}/edit', [ExperienceController::class, 'edit'])->name('experience.edit');
 Route::put('/experience/{experience}', [ExperienceController::class, 'update'])->name('experience.update');
 Route::delete('/experience/{experience}/delete', [ExperienceController::class, 'delete'])->name('experience.delete');
-Route::get('/experience/{experience}/edit', [ExperienceController::class, 'edit'])->name('experience.edit');
-Route::put('/experience/{experience}', [ExperienceController::class, 'update'])->name('experience.update');
-Route::delete('/experience/{experience}/delete', [ExperienceController::class, 'delete'])->name('experience.delete');
+
+
+//Personal Projects
+Route::get('/personalProject/index', [PersonalProjectController::class, 'index'])->name('personalProject.index');
+Route::get('/personalProject/create', [PersonalProjectController::class, 'create'])->name('personalProject.create');
+Route::post('/personalProject/store', [PersonalProjectController::class, 'store'])->name('personalProject.store');
+Route::get('/personalProjcet/{personalProject}/edit', [PersonalProjectController::class, 'edit'])->name('personalProject.edit');
+Route::put('/personalProjcet/{personalProject}', [PersonalProjectController::class, 'update'])->name('personalProject.update');
+Route::delete('personalProject/{personalProject}/delete', [PersonalProjectController::class, 'delete'])->name('personalProject.delete');
